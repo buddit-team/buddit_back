@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>s
+</head>
+<body>
+<!--<a href="https://kauth.kakao.com/oauth/authorize-->
+<!--            ?client_id=09e56573feac4585c8794930148ddb54-->
+<!--            &redirect_uri=http://localhost:3000/login-->
+<!--            &response_type=code">로그인</a>-->
+<if th:if="${session.userId eq null}">
+<a href="https://kauth.kakao.com/oauth/authorize?client_id=09e56573feac4585c8794930148ddb54&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin&response_type=code">로그인</a>
+</if>
+<if th:if="${session.userId ne null}">
+    <h1>로그인 성공입니다</h1>
+    <input type="button" value="로그아웃" onclick="location.href='/logout'">
+</if>
+</body>
+</html>
